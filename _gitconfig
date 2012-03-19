@@ -1,0 +1,8 @@
+[user]
+	name = Andy
+	email = 5thWall@gmail.com
+[core]
+	editor = mate -w
+	excludesfile = /Users/Andy/.gitignore
+[color]
+	ui = true
