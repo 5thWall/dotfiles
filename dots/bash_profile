@@ -1,9 +1,10 @@
 # Load ~/.extra, ~/.bash_prompt, ~/.exports, ~/.aliases and ~/.functions
 # ~/.extra can be used for settings you don’t want to commit
-for file in ~/.bash/{extra,bash_prompt,exports,aliases,functions}; do
+for file in ~/.bash/{bash_prompt,exports,aliases,functions}; do
 	[ -r $file ] && source $file
 done
 unset file
+source ~/.secret
 
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob
@@ -25,7 +26,6 @@ complete -W "NSGlobalDomain" defaults
 ## GIT
 ### github
 alias git=hub
-. ~/.ghub
 
 ### Bash-completion
 if [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then

@@ -15,10 +15,6 @@
 	aa = add --all
 	# Switch to a branch, creating it if necessary
 	go = checkout -B
-
-[user]
-	name = Andy
-	email = 5thWall@gmail.com
 	
 [core]
 	editor = vim
