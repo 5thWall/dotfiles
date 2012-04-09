@@ -1,8 +1,28 @@
+[alias]
+	# View the SHA, description, and history graph of the latest 20 commits
+	l = log --pretty=oneline -n 20 --graph
+	# Pull in remote changes for the current repository and all its submodules
+	pa = !"git pull; git submodule foreach git pull origin master"
+	# Clone a repository including all submodules
+	cloner = clone --recursive
+	# Commit all changes
+	ca = commit -a
+	# Commit with message
+	cm = commit -m
+	# Commit everything with message
+	cam = commit -am
+	# Add everything
+	aa = add --all
+	# Switch to a branch, creating it if necessary
+	go = checkout -B
+
 [user]
 	name = Andy
 	email = 5thWall@gmail.com
+	
 [core]
-	editor = mate -w
+	editor = vim
 	excludesfile = /Users/Andy/.gitignore
+	
 [color]
-	ui = true
+	ui = auto
