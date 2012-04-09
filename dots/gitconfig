@@ -21,4 +21,15 @@
 	excludesfile = /Users/Andy/.gitignore
 	
 [color]
-	ui = auto
+	ui = true
+	
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+  
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
