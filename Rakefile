@@ -6,14 +6,18 @@ require 'yaml'
 desc "Lists files this script will affect."
 task :list do
   @files.each do |file|
-    if File.exists? File.join(ENV['HOME'], ".#{file}")
-      if File.identical? "dots/#{file}", File.join(ENV['HOME'], ".#{file}")
-        puts "Identical: ~/.#{file}"
+    fname = file.split('/').last
+    source = File.join ENV['PWD'], file
+    target = File.join ENV['HOME'], ".#{fname}"
+    
+    if File.exists? target
+      if File.identical? source, target
+        puts "Identical: #{target}"
       else
-        puts "Replace:   ~/.#{file}"
+        puts "Replace:   #{target}"
       end
     else
-      puts "Link:       ~/.#{file}"
+      puts "Link:       #{target}"
     end
   end
 end
@@ -23,20 +27,21 @@ task :install do
   replace_all = false
   
   @files.each do |file|
-    file_home = File.join ENV['HOME'], ".#{file}"
+    fname = file.split('/').last
+    target = File.join ENV['HOME'], ".#{fname}"    
     
-    if File.symlink? file_home
-      puts "Linked:   ~/.#{file}"
+    if File.symlink? target
+      puts "Linked:  #{target}"
       
-    elsif File.exist? File.join(ENV['HOME'], ".#{file}")
-      if File.identical? "dots/#{file}", File.join(ENV['HOME'], ".#{file}")
-        puts "Identical: ~/.#{file}"
+    elsif File.exist? target
+      if File.identical? source, target
+        puts "Identical: #{target}"
         
       elsif replace_all
         replace_file file
       
       else
-        print "Overwrite ~/.#{file}? [ynaq] "
+        print "Overwrite #{target}? [ynaq] "
         case $stdin.gets.chomp
         when 'a', 'A'
           replace_all = true
@@ -47,7 +52,7 @@ task :install do
           puts "Exiting"
           exit
         else
-          puts "Skipping: ~/#{file}"
+          puts "Skipping:  #{target}"
         end
       end
       
@@ -60,9 +65,10 @@ end
 desc "Overwrite all files!"
 task :overwrite do
   @files.each do |file|
-    file_home = File.join ENV['HOME'], ".#{file}"
+    fname = file.split('/').last
+    target = File.join ENV['HOME'], ".#{fname}"
     
-    if File.exists?(file_home) || File.symlink?(file_home)
+    if File.exists?(target) || File.symlink?(target)
       replace_file file
     else
       link_file file
@@ -71,17 +77,24 @@ task :overwrite do
 end
 
 def replace_file file
-  puts "Removing: ~/.#{file}"
-  File.delete File.join(ENV['HOME'], ".#{file}")
+  fname = file.split('/').last
+  target = File.join ENV['HOME'], ".#{fname}"
+  
+  puts "Removing: #{target}"
+  FileUtils.rm_rf target
   link_file file
 end
 
 def link_file file
-  if File.symlink? File.join(ENV['HOME'], ".#{file}")
-    puts "File ~/.#{file} already symlinked."
+  fname = file.split('/').last
+  source = File.join ENV['PWD'], file
+  target = File.join ENV['HOME'], ".#{fname}"
+  
+  if File.symlink? target
+    puts "File #{target} already symlinked."
     return
   end
   
-  puts "Linking:  ~/.#{file}"
-  File.symlink File.join(ENV['PWD'], "dots/#{file}"), File.join(ENV['HOME'], ".#{file}")
+  puts "Linking:  #{target}"
+  FileUtils.ln_sf source, target
 end
