@@ -1,7 +1,7 @@
 require 'rake'
 require 'yaml'
 
-@files = YAML.load_file "dotfiles.yaml"
+@files = Dir.glob 'dots/*' 
 
 desc "Lists files this script will affect."
 task :list do
