@@ -37,8 +37,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Load ~/.extra, ~/.bash_prompt, ~/.exports, ~/.aliases and ~/.functions
 # ~/.extra can be used for settings you don’t want to commit
-for file in ~/.zsh/{prompt,exports,aliases,functions,completion}.zsh; do
+for file in ~/.zsh/{exports,aliases,functions,completion}.zsh; do
 	[ -r $file ] && source $file
 done
 unset file
 source ~/.secret
+
