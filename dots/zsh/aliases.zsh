@@ -1,5 +1,5 @@
 # Reload the bash script
-alias reload='source ~/.zsh'
+alias reload='source ~/.zshrc'
 
 # Get stuff from brew
 alias iwant='sudo brew install'
