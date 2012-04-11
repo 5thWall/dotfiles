@@ -1,0 +1,14 @@
+# Basic Settings
+fontName = "Anonymous Pro"
+fontSize = 15
+
+# Extra files to include
+myExtraIncludes = ".tm_properties,.htaccess,.gitignore"
+fileBrowserGlob  = "{*,$myExtraIncludes}"
+include = "{$include,$myExtraIncludes}"
+
+TM_GIT = /usr/local/bin/git
+TM_HG  = /usr/local/bin/hg
+
+softTabs = true
+tabSize  = 2
