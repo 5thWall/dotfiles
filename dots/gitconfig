@@ -1,6 +1,9 @@
 [alias]
 	# View the SHA, description, and history graph of the latest 20 commits
 	l = log --pretty=oneline -n 20 --graph
+	# More log stuff
+	lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 	# Pull in remote changes for the current repository and all its submodules
 	pa = !"git pull; git submodule foreach git pull origin master"
 	# Clone a repository including all submodules
