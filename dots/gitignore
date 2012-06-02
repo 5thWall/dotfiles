@@ -10,5 +10,12 @@ Thumbs.db
 .Spotlight-V100
 .Trashes
 
-# Application files
+# Textmate Files
 .tm_profile
+*.tmproj
+*.tmproject
+tmtags
+
+# SublimeText project files
+/*.sublime-project
+*.sublime-workspace
