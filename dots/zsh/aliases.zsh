@@ -12,6 +12,7 @@ alias d="cd ~/Dropbox"
 alias work="cd ~/Workspace"
 alias v="vim"
 alias m="mate ."
+alias s='/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl'
 
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
