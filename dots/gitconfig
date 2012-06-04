@@ -36,3 +36,6 @@
   frag = blue bold reverse
   old = red
   new = green
+
+[include]
+  path = .secretgitconfig
