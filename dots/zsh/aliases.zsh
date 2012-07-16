@@ -9,7 +9,7 @@ alias engage='play -n -c1 synth whitenoise lowpass -1 120 lowpass -1 120 lowpass
 
 # Shortcuts
 alias d="cd ~/Dropbox"
-alias work="cd ~/Workspace"
+alias work="cd ~/dev"
 alias v="vim"
 alias m="mate ."
 alias s='/usr/local/bin/subl'
