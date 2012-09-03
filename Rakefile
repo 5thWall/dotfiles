@@ -1,4 +1,3 @@
-require 'rake'
 require 'yaml'
 
 @files = Dir.glob 'dots/*'
