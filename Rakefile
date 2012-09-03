@@ -82,7 +82,7 @@ def replace_file file
   target = File.join ENV['HOME'], ".#{fname}"
 
   puts "Removing: #{target}"
-  FileUtils.rm_rf target
+  rm_rf target
   link_file file
 end
 
@@ -97,5 +97,5 @@ def link_file file
   end
 
   puts "Linking:  #{target}"
-  FileUtils.ln_sf source, target
+  ln_sf source, target
 end
