@@ -1,4 +1,4 @@
-runtime bundle/vim-pathogen/runtime/pathogen.vim
+runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
 syntax on
