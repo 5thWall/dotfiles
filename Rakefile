@@ -1,5 +1,3 @@
-require 'yaml'
-
 @files = Dir.glob 'dots/*'
 
 desc "Lists files this script will affect."
