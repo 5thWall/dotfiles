@@ -2,7 +2,9 @@
 ZSH=$HOME/.oh-my-zsh
 
 # ZSH theme
-ZSH_THEME="juanghurtado"
+# ZSH_THEME="juanghurtado"
+# ZSH_THEME="agnoster"
+ZSH_THEME="blinks"
 
 # Oh-My-ZSH plugins
 plugins=(git github brew ruby pow osx)
@@ -17,3 +19,6 @@ unset file
 
 # Include secrets...
 source ~/.secret
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"

@@ -18,6 +18,7 @@
 	aa = add --all
 	# Switch to a branch, creating it if necessary
 	go = checkout -B
+	ch = checkout
 	
 [core]
 	editor = vim

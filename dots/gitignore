@@ -19,3 +19,7 @@ tmtags
 # SublimeText project files
 /*.sublime-project
 *.sublime-workspace
+
+# Pow environment files
+.powrc
+.powenv
