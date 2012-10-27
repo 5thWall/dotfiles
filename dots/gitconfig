@@ -3,22 +3,32 @@
 	l = log --pretty=oneline -n 20 --graph
 	# More log stuff
 	lol = log --graph --decorate --pretty=oneline --abbrev-commit
-  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+        lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+
 	# Pull in remote changes for the current repository and all its submodules
 	pa = !"git pull; git submodule foreach git pull origin master"
+
 	# Clone a repository including all submodules
 	cloner = clone --recursive
+
 	# Commit all changes
 	ca = commit -a
+
 	# Commit with message
 	cm = commit -m
+
 	# Commit everything with message
 	cam = commit -am
+
 	# Add everything
 	aa = add --all
+
 	# Switch to a branch, creating it if necessary
 	go = checkout -B
 	ch = checkout
+
+	# Quieter status messages
+	s = status -sb
 	
 [core]
 	editor = vim
@@ -42,3 +52,7 @@
   path = .secretgitconfig
 [user]
 	name = 
+[push]
+	default = simple
+[help]
+	autocerrect = 1
