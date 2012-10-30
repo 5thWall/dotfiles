@@ -55,4 +55,4 @@
 [push]
 	default = simple
 [help]
-	autocerrect = 1
+	autocorrect = 1
