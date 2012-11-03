@@ -1,5 +1,9 @@
 # Homebrew and rbenv on path
-export PATH="/usr/local/bin:$HOME/.rbenv/bin:$PATH"
+export PATH="/usr/local/share/npm/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 
 # Init rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+ 
