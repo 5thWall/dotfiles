@@ -23,3 +23,5 @@ tmtags
 # Pow environment files
 .powrc
 .powenv
+### SASS Ignores - "Sassy CSS" http://sass-lang.com/
+*.sass-cache
