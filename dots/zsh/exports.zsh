@@ -28,3 +28,8 @@ export HISTIGNORE="ls:ls *:cd:cd -:pwd;exit:date:* --help"
 # Make brew override system defaults
 export PATH="/usr/local/bin:$PATH"
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
+
+# LESS options
+#  -R Colors
+#  -X Don't clear screen on quit
+export LESS="-R -X"
