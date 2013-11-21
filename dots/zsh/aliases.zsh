@@ -7,13 +7,6 @@ alias iwant='sudo brew install'
 # Star Trek
 alias engage='play -n -c1 synth whitenoise lowpass -1 120 lowpass -1 120 lowpass -1 120 gain +14'
 
-# Shortcuts
-alias d="cd ~/Dropbox"
-alias work="cd ~/dev"
-alias v="vim"
-alias m="mate ."
-alias s='/usr/local/bin/subl'
-
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 
