@@ -10,6 +10,10 @@ alias engage='play -n -c1 synth whitenoise lowpass -1 120 lowpass -1 120 lowpass
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 
+# Apps
+alias byword='open -a Byword'
+alias marked='open -a Marked'
+
 # Empty the Trash on all mounted volumes and the main HDD
 # Also, clear Apple’s System Logs to improve shell startup speed
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"

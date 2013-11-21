@@ -8,6 +8,11 @@ function mkcd() {
   mkdir -p "$1" && cd "$1"
 }
 
+# Open file in both Marked and Byword
+function bymark() {
+  open -a Byword "$1" && open -a Marked "$1"
+}
+
 # Use Git’s colored diff when available
 hash git &>/dev/null
 if [ $? -eq 0 ]; then
@@ -20,5 +25,3 @@ fi
 function gurl() {
 	curl -sH "Accept-Encoding: gzip" "$@" | gunzip
 }
-
-
