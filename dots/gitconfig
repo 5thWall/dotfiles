@@ -11,14 +11,15 @@
 	# Clone a repository including all submodules
 	cloner = clone --recursive
 
-	# Commit all changes
+  # Commit
+  ## Commit all changes
 	ca = commit -a
-
-	# Commit with message
+  ## Commit with message
 	cm = commit -m
-
-	# Commit everything with message
+  ## Commit everything with message
 	cam = commit -am
+  ## Ammend the commit using the previous message
+  touchup = commit --amend --reuse-message=HEAD
 
 	# Add everything
 	aa = add --all
