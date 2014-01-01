@@ -12,7 +12,7 @@ antigen-bundle github
 antigen-bundle heroku
 antigen-bundle osx
 antigen-bundle pow
-antigen-bundle rails3
+antigen-bundle rails
 antigen-bundle rake
 antigen-bundle bundler
 
