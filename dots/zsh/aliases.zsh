@@ -5,7 +5,7 @@ alias reload='source ~/.zshrc'
 alias iwant='sudo brew install'
 
 # Star Trek
-alias engage='play -n -c1 synth whitenoise lowpass -1 120 lowpass -1 120 lowpass -1 120 gain +14'
+alias engage='say engage; play -n -c1 synth whitenoise lowpass -1 120 lowpass -1 120 lowpass -1 120 gain +14'
 
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
