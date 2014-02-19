@@ -19,3 +19,6 @@
 [submodule "dots/antigen"]
 	path = dots/antigen
 	url = git://github.com/zsh-users/antigen.git
+[submodule "dots/powerline"]
+	path = dots/powerline
+	url = git@github.com:Lokaltog/powerline.git
