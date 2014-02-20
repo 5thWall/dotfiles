@@ -5,6 +5,7 @@ antigen-use oh-my-zsh
 
 # Set the theme
 antigen-theme blinks # agnoster, juanghurtado
+# . $HOME/.powerline/powerline/bindings/zsh/powerline.zsh
 
 # Plugins
 antigen-bundle brew
