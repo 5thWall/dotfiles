@@ -1,14 +1,28 @@
+" Plugins yo!
+set nocompatible
+filetype plugin on
+
+" matchit
+runtime macros/matchit.vim
+
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
+" surround.vim
 
 syntax on
 filetype plugin indent on
 
 set laststatus=2
-set guifont=Anonymous\ Pro\ for\ Powerline:h14
 
 set autoindent
 set shiftwidth=2
 set expandtab
 
 set nu
+
+" Make ex-mode tab completion work like zsh
+set wildmenu
+set wildmode=full
+
+" longer history
+set history=200
