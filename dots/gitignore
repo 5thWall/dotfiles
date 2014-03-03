@@ -20,6 +20,14 @@ tmtags
 /*.sublime-project
 *.sublime-workspace
 
+# Vim files
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+*~
+
 # Pow environment files
 .powrc
 .powenv
