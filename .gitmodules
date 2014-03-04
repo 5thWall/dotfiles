@@ -22,3 +22,24 @@
 [submodule "dots/powerline"]
 	path = dots/powerline
 	url = git@github.com:Lokaltog/powerline.git
+[submodule "dots/vim/bundle/vim-ruby"]
+	path = dots/vim/bundle/vim-ruby
+	url = git://github.com/vim-ruby/vim-ruby.git
+[submodule "dots/vim/bundle/vim-markdown"]
+	path = dots/vim/bundle/vim-markdown
+	url = git@github.com:tpope/vim-markdown.git
+[submodule "dots/vim/bundle/vim-bundler"]
+	path = dots/vim/bundle/vim-bundler
+	url = git@github.com:tpope/vim-bundler.git
+[submodule "dots/vim/bundle/vim-rbenv"]
+	path = dots/vim/bundle/vim-rbenv
+	url = git@github.com:tpope/vim-rbenv.git
+[submodule "dots/vim/bundle/vim-haml"]
+	path = dots/vim/bundle/vim-haml
+	url = git@github.com:tpope/vim-haml.git
+[submodule "dots/vim/bundle/vim-commentary"]
+	path = dots/vim/bundle/vim-commentary
+	url = git@github.com:tpope/vim-commentary.git
+[submodule "dots/vim/bundle/vim-surround"]
+	path = dots/vim/bundle/vim-surround
+	url = git@github.com:tpope/vim-surround.git
