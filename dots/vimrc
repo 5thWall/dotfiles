@@ -5,9 +5,11 @@ filetype plugin on
 " matchit
 runtime macros/matchit.vim
 
+" powerline
+set rtp+=~/.powerline/powerline/bindings/vim
+
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
-" surround.vim
 
 syntax on
 filetype plugin indent on
