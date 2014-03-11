@@ -23,6 +23,7 @@ set expandtab
 set autoindent
 
 set nu
+set linebreak
 
 " Make ex-mode tab completion work like zsh
 set wildmenu
