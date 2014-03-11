@@ -40,3 +40,9 @@
 [submodule "dots/vim/bundle/vim-surround"]
 	path = dots/vim/bundle/vim-surround
 	url = git@github.com:tpope/vim-surround.git
+[submodule "dots/vim/bundle/funcoo.vim"]
+	path = dots/vim/bundle/funcoo.vim
+	url = https://github.com/rizzatti/funcoo.vim.git
+[submodule "dots/vim/bundle/dash.vim"]
+	path = dots/vim/bundle/dash.vim
+	url = https://github.com/rizzatti/dash.vim.git
