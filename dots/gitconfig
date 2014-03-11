@@ -109,3 +109,5 @@
 	default = simple
 [help]
 	autocorrect = 10
+[init]
+	templatedir = ~/.git_template
