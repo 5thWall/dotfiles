@@ -49,3 +49,6 @@
 [submodule "dots/vim/bundle/vim-fugitive"]
 	path = dots/vim/bundle/vim-fugitive
 	url = git@github.com:tpope/vim-fugitive.git
+[submodule "dots/vim/bundle/vim-coffee-script"]
+	path = dots/vim/bundle/vim-coffee-script
+	url = git@github.com:kchmck/vim-coffee-script.git
