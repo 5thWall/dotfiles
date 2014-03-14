@@ -8,21 +8,28 @@ runtime macros/matchit.vim
 " powerline
 set rtp+=~/.powerline/powerline/bindings/vim
 
+" pathogen
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
 syntax on
+set background=dark
+colorscheme solarized
 filetype plugin indent on
 
+" keep the status line up
 set laststatus=2
 
+" Indentation
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set expandtab
 set autoindent
 
+" Line numbers
 set nu
+" wrap lines on words
 set linebreak
 
 " Make ex-mode tab completion work like zsh
@@ -31,3 +38,6 @@ set wildmode=full
 
 " longer history
 set history=200
+
+" Set highlighted search
+set hlsearch
