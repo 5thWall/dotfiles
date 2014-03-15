@@ -2,13 +2,13 @@
 set nocompatible
 filetype plugin indent on
 
-" matchit
+"" matchit
 runtime macros/matchit.vim
 
-" powerline
+"" powerline
 set rtp+=~/.powerline/powerline/bindings/vim
 
-" pathogen
+"" pathogen
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
@@ -17,11 +17,30 @@ syntax on
 set background=dark
 let g:solarized_hitrail=1
 set cursorline
+set incsearch
+set hlsearch
+nnoremap <CR> :nohlsearch<CR>
 colorscheme solarized
 filetype plugin indent on
 
 " keep the status line up
 set laststatus=2
+
+" Let me switch buffers without saving
+set hidden
+
+" Undo
+set undodir=$HOME/.vim/undo
+set undofile
+set undolevels=1000
+set undoreload=10000
+
+" longer history
+set history=200
+
+" Project Specific .vimrc
+set exrc
+set secure
 
 " Indentation
 set tabstop=2
@@ -31,19 +50,23 @@ set expandtab
 set autoindent
 
 " Line numbers
-set nu
+set number
+if v:version >= 704
+  set relativenumber
+  nnoremap <C-n> :set rnu!<CR>
+end
 " wrap lines on words
 set linebreak
+
+" Start scrolling 3 lines before border
+set scrolloff=3
+
+" Reread files that have been changed externally
+set autoread
 
 " Make ex-mode tab completion work like zsh
 set wildmenu
 set wildmode=full
-
-" longer history
-set history=200
-
-" Set highlighted search
-set hlsearch
 
 function! TrimWhiteSpace()
   let l = line(".")
@@ -51,4 +74,23 @@ function! TrimWhiteSpace()
   %s/\s\+$//e
   call cursor(l, c)
 endfunction
+
 autocmd FileType ruby,javascript,haml,erb autocmd BufWritePre <buffer> :call TrimWhiteSpace()
+
+function! Cleanup()
+  let save_cursor = getpos(".")
+  let old_query   = getreg('/')
+
+  :retab
+  :normal gg=G
+  :%s/\s\+$//e
+  :%s/\n\{3,}/\r\r/e
+
+  call setpos('.', save_cursor)
+  call setreg('/', old_query)
+endfunction
+noremap <leader>cu :silent call Cleanup()<CR>
+
+nnoremap <Leader>ws :silent call TrimWhiteSpace()<CR>
+nmap <silent> <Leader>d <Plug>DashSearch
+nmap <silent> <Leader>dg <Plug>DashGlobalSearch
