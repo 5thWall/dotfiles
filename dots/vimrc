@@ -12,9 +12,11 @@ set rtp+=~/.powerline/powerline/bindings/vim
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
+" COLORS! WOOOO!
 syntax on
 set background=dark
-let g:solarized_visibility="high"
+let g:solarized_hitrail=1
+set cursorline
 colorscheme solarized
 filetype plugin indent on
 
@@ -42,14 +44,6 @@ set history=200
 
 " Set highlighted search
 set hlsearch
-
-" Trailing Whitespaces
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
 
 function! TrimWhiteSpace()
   let l = line(".")
