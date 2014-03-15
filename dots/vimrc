@@ -12,6 +12,9 @@ set rtp+=~/.powerline/powerline/bindings/vim
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
+" mouse?
+set mouse=a
+
 " COLORS! WOOOO!
 syntax on
 set background=dark
@@ -94,3 +97,5 @@ noremap <leader>cu :silent call Cleanup()<CR>
 nnoremap <Leader>ws :silent call TrimWhiteSpace()<CR>
 nmap <silent> <Leader>d <Plug>DashSearch
 nmap <silent> <Leader>dg <Plug>DashGlobalSearch
+
+cmap w!! %!sudo tee > /dev/null %
