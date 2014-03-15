@@ -14,6 +14,7 @@ call pathogen#infect()
 
 syntax on
 set background=dark
+let g:solarized_visibility="high"
 colorscheme solarized
 filetype plugin indent on
 
@@ -41,3 +42,19 @@ set history=200
 
 " Set highlighted search
 set hlsearch
+
+" Trailing Whitespaces
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
+function! TrimWhiteSpace()
+  let l = line(".")
+  let c = col(".")
+  %s/\s\+$//e
+  call cursor(l, c)
+endfunction
+autocmd FileType ruby,javascript,haml,erb autocmd BufWritePre <buffer> :call TrimWhiteSpace()
