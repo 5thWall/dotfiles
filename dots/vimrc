@@ -78,8 +78,6 @@ function! TrimWhiteSpace()
   call cursor(l, c)
 endfunction
 
-autocmd FileType ruby,javascript,haml,erb autocmd BufWritePre <buffer> :call TrimWhiteSpace()
-
 function! Cleanup()
   let save_cursor = getpos(".")
   let old_query   = getreg('/')
@@ -95,7 +93,19 @@ endfunction
 noremap <leader>cu :silent call Cleanup()<CR>
 
 nnoremap <Leader>ws :silent call TrimWhiteSpace()<CR>
-nmap <silent> <Leader>d <Plug>DashSearch
-nmap <silent> <Leader>dg <Plug>DashGlobalSearch
+
+if !has('win32') && match(system('uname'), 'Darwin') == 0
+  nmap <silent> <Leader>d <Plug>DashSearch
+  nmap <silent> <Leader>dg <Plug>DashGlobalSearch
+
+  if has('autocmd')
+    autocmd FileType markdown,mkd nnoremap <Leader>P :silent !open -a Marked.app '%:p'<CR><C-l>
+  endif
+endif
 
 cmap w!! %!sudo tee > /dev/null %
+
+if has('autocmd')
+  autocmd FileType ruby,javascript,haml,erb autocmd BufWritePre <buffer> :call TrimWhiteSpace()
+  autocmd FileType markdown,mkd set spell
+endif
