@@ -58,3 +58,6 @@
 [submodule "dots/vim/tabular"]
 	path = dots/vim/tabular
 	url = git@github.com:godlygeek/tabular.git
+[submodule "dots/vim/bundle/vim-unimpaired"]
+	path = dots/vim/bundle/vim-unimpaired
+	url = git@github.com:tpope/vim-unimpaired.git
