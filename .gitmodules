@@ -55,9 +55,6 @@
 [submodule "dots/vim/bundle/ag.vim"]
 	path = dots/vim/bundle/ag.vim
 	url = git@github.com:rking/ag.vim.git
-[submodule "dots/vim/tabular"]
-	path = dots/vim/tabular
-	url = git@github.com:godlygeek/tabular.git
 [submodule "dots/vim/bundle/vim-unimpaired"]
 	path = dots/vim/bundle/vim-unimpaired
 	url = git@github.com:tpope/vim-unimpaired.git
