@@ -109,3 +109,6 @@ if has('autocmd')
   autocmd FileType ruby,javascript,haml,erb autocmd BufWritePre <buffer> :call TrimWhiteSpace()
   autocmd FileType markdown,mkd set spell
 endif
+
+" Indent all the html tags
+let g:html_indent_inctags = "body,head,tbody,p"
