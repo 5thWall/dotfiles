@@ -1,6 +1,7 @@
 " Plugins yo!
 set nocompatible
 filetype plugin indent on
+let mapleader = "\<Space>"
 
 "" matchit
 runtime macros/matchit.vim
