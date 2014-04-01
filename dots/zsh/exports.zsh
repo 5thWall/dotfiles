@@ -33,3 +33,6 @@ export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
 #  -R Colors
 #  -X Don't clear screen on quit
 export LESS="-R -X"
+
+# Disable oh-my-zsh updating of tmux window name
+export DISABLE_AUTO_TITLE=true
