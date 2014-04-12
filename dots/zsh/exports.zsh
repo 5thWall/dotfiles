@@ -26,7 +26,7 @@ export HISTCONTROL=ignoredups
 export HISTIGNORE="ls:ls *:cd:cd -:pwd;exit:date:* --help"
 
 # Make brew override system defaults
-export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/bin:$PATH:/usr/local/sbin"
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
 
 # LESS options
