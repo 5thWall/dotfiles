@@ -14,7 +14,7 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
 " mouse?
-set mouse=a
+" set mouse=a
 
 " COLORS! WOOOO!
 syntax on
