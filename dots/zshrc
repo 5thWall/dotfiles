@@ -21,7 +21,7 @@ antigen-bundle bundler
 antigen-apply
 
 # Custom
-for file in ~/.zsh/{exports,aliases,functions,completion}.zsh; do
+for file in ~/.zsh/{aliases,functions,completion}.zsh; do
 	[ -r $file ] && source $file
 done
 unset file
