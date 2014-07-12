@@ -64,3 +64,6 @@
 [submodule "dots/vim/bundle/goyo.vim"]
 	path = dots/vim/bundle/goyo.vim
 	url = git@github.com:junegunn/goyo.vim.git
+[submodule "dots/vim/bundle/elixir-lang"]
+	path = dots/vim/bundle/elixir-lang
+	url = git@github.com:elixir-lang/vim-elixir.git
