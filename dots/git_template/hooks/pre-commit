@@ -1,0 +1,5 @@
+#! /bin/sh
+
+if [[ -x .git/hooks/rubocop ]]
+  .git/hooks/rubocop
+fi
