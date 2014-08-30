@@ -67,3 +67,6 @@
 [submodule "dots/vim/bundle/elixir-lang"]
 	path = dots/vim/bundle/elixir-lang
 	url = git@github.com:elixir-lang/vim-elixir.git
+[submodule "dots/vim/bundle/vim-projectionist"]
+	path = dots/vim/bundle/vim-projectionist
+	url = git@github.com:tpope/vim-projectionist.git

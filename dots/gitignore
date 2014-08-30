@@ -28,6 +28,8 @@ tmtags
 Session.vim
 .netrwhist
 *~
+## Project files
+.projections.json
 
 # Pow environment files
 .powrc
