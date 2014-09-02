@@ -64,6 +64,9 @@
   # Interactively rebase all the commits on the current branch
   rebase-branch = "!git rebase -i `git merge-base master HEAD`"
 
+  # List of files changed in branch
+  ldf = "!f() { git diff --name-only \"$(git merge-base HEAD ${1:-master})\"; }; f"
+
   # Files
 
   # Unstage any files that have been added to the staging area
