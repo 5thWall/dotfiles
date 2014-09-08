@@ -16,6 +16,7 @@ antigen-bundle pow
 antigen-bundle rails
 antigen-bundle rake
 antigen-bundle bundler
+antigen bundle zsh-users/zsh-syntax-highlighting
 
 # Finished loading antigen
 antigen-apply
