@@ -88,6 +88,9 @@
   # Checkout their version of a file and add it
   theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
 
+  # Pull Requests
+  # Pull request to developbranch
+  prd = "pull-request -o -b develop"
 [core]
 	editor = vim
 	excludesfile = /Users/Andy/.gitignore
