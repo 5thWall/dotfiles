@@ -70,3 +70,9 @@
 [submodule "dots/vim/bundle/vim-projectionist"]
 	path = dots/vim/bundle/vim-projectionist
 	url = git@github.com:tpope/vim-projectionist.git
+[submodule "dots/vim/bundle/ctrlp.vim"]
+	path = dots/vim/bundle/ctrlp.vim
+	url = git@github.com:kien/ctrlp.vim.git
+[submodule "dots/vim/bundle/syntastic"]
+	path = dots/vim/bundle/syntastic
+	url = git@github.com:scrooloose/syntastic.git
