@@ -73,3 +73,6 @@
 [submodule "dots/vim/bundle/syntastic"]
 	path = dots/vim/bundle/syntastic
 	url = git@github.com:scrooloose/syntastic.git
+[submodule "dots/vim/bundle/tagbar"]
+	path = dots/vim/bundle/tagbar
+	url = git@github.com:majutsushi/tagbar.git

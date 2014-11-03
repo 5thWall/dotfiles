@@ -113,3 +113,24 @@ endif
 
 " Indent all the html tags
 let g:html_indent_inctags = "body,head,tbody,p"
+
+" TAGBAR CONFIG
+let g:tagbar_type_elixir = {
+  \ 'ctagstype' : 'elixir',
+  \ 'kinds' : [
+      \ 'f:functions (public)',
+      \ 'g:functions (private)',
+      \ 'c:callbacks',
+      \ 'd:delegates',
+      \ 'e:exceptions',
+      \ 'i:implementations',
+      \ 'a:macros',
+      \ 'o:operators',
+      \ 'm:modules',
+      \ 'p:protocols',
+      \ 'r:records',
+      \ 't:types',
+      \ 'z:foo'
+  \ ]
+\ }
+" END TAGBAR CONFIG
