@@ -7,6 +7,9 @@ alias iwant='brew install'
 # Run a webserver in current dir on port 5000
 alias serveme='ruby -run -e httpd . -p 5000'
 
+# Open all git merge-conflicts in editor
+alias fix='$EDITOR `git diff --name-only | uniq`'
+
 # Star Trek
 alias engage='say engage; play -n -c1 synth whitenoise lowpass -1 120 lowpass -1 120 lowpass -1 120 gain +14'
 
