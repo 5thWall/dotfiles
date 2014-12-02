@@ -134,3 +134,7 @@ let g:tagbar_type_elixir = {
   \ ]
 \ }
 " END TAGBAR CONFIG
+
+" Syntastic config
+let syntastic_mode_map = { 'passive_filetypes': ['html', 'cucumber'] }
+" END Syntastic config
