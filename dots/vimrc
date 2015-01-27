@@ -21,6 +21,7 @@ syntax on
 set background=dark
 let g:solarized_hitrail=1
 set cursorline
+set cursorcolumn
 set incsearch
 set hlsearch
 nnoremap <CR> :nohlsearch<CR>
