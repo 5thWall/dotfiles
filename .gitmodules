@@ -76,3 +76,6 @@
 [submodule "dots/vim/bundle/tagbar"]
 	path = dots/vim/bundle/tagbar
 	url = git@github.com:majutsushi/tagbar.git
+[submodule "dots/vim/bundle/Vim-R-plugin"]
+	path = dots/vim/bundle/Vim-R-plugin
+	url = git@github.com:vim-scripts/Vim-R-plugin.git
