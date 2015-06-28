@@ -8,7 +8,6 @@ antigen-theme blinks # agnoster, juanghurtado
 # . $HOME/.powerline/powerline/bindings/zsh/powerline.zsh
 
 # Plugins
-antigen-bundle brew
 antigen-bundle github
 antigen-bundle heroku
 antigen-bundle osx
