@@ -25,3 +25,8 @@ fi
 function gurl() {
 	curl -sH "Accept-Encoding: gzip" "$@" | gunzip
 }
+
+# Standard Gitignores
+function gi() {
+  curl -L -s https://www.gitignore.io/api/$@
+}
