@@ -108,7 +108,7 @@ endif
 cmap w!! %!sudo tee > /dev/null %
 
 if has('autocmd')
-  autocmd FileType ruby,javascript,haml,erb autocmd BufWritePre <buffer> :call TrimWhiteSpace()
+  autocmd FileType ruby,javascript,haml,erb,elixir autocmd BufWritePre <buffer> :call TrimWhiteSpace()
   autocmd FileType markdown,mkd set spell
 endif
 
