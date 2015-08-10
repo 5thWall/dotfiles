@@ -1,7 +1,7 @@
 " Plugins yo!
 set nocompatible
 filetype plugin indent on
-let mapleader = "\<Space>"
+let mapleader = "<Space>"
 
 "" matchit
 runtime macros/matchit.vim
@@ -13,12 +13,10 @@ set rtp+=~/.powerline/powerline/bindings/vim
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 
-" mouse?
-" set mouse=a
-
 " COLORS! WOOOO!
 syntax on
 set background=dark
+" set background=light
 let g:solarized_hitrail=1
 set cursorline
 set cursorcolumn
@@ -53,6 +51,9 @@ set softtabstop=2
 set shiftwidth=2
 set expandtab
 set autoindent
+
+" Annoyance
+nnoremap Q <nop>
 
 " Line numbers
 set number
@@ -94,7 +95,7 @@ function! Cleanup()
 endfunction
 noremap <leader>cu :silent call Cleanup()<CR>
 
-nnoremap <Leader>ws :silent call TrimWhiteSpace()<CR>
+nnoremap <leader>ws :silent call TrimWhiteSpace()<CR>
 
 if !has('win32') && match(system('uname'), 'Darwin') == 0
   nmap <silent> <Leader>d <Plug>DashSearch
@@ -110,6 +111,7 @@ cmap w!! %!sudo tee > /dev/null %
 if has('autocmd')
   autocmd FileType ruby,javascript,haml,erb,elixir autocmd BufWritePre <buffer> :call TrimWhiteSpace()
   autocmd FileType markdown,mkd set spell
+  autocmd FileType markdown,mkd set formatprg=par
 endif
 
 " Indent all the html tags
@@ -117,8 +119,8 @@ let g:html_indent_inctags = "body,head,tbody,p"
 
 " TAGBAR CONFIG
 let g:tagbar_type_elixir = {
-  \ 'ctagstype' : 'elixir',
-  \ 'kinds' : [
+      \ 'ctagstype' : 'elixir',
+      \ 'kinds' : [
       \ 'f:functions (public)',
       \ 'g:functions (private)',
       \ 'c:callbacks',
@@ -132,8 +134,8 @@ let g:tagbar_type_elixir = {
       \ 'r:records',
       \ 't:types',
       \ 'z:foo'
-  \ ]
-\ }
+      \ ]
+      \ }
 " END TAGBAR CONFIG
 
 " Syntastic config
