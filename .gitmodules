@@ -79,3 +79,6 @@
 [submodule "dots/vim/bundle/Vim-R-plugin"]
 	path = dots/vim/bundle/Vim-R-plugin
 	url = git@github.com:vim-scripts/Vim-R-plugin.git
+[submodule "dots/vim/bundle/quick-scope"]
+	path = dots/vim/bundle/quick-scope
+	url = git@github:unblevable/quick-scope.git
