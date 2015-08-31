@@ -54,6 +54,8 @@ set autoindent
 
 " Annoyance
 nnoremap Q <nop>
+nnoremap <up> gk
+nnoremap <down> gj
 
 " Line numbers
 set number
