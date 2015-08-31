@@ -21,7 +21,7 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen-apply
 
 # Custom
-for file in ~/.zsh/{aliases,functions,completion}.zsh; do
+for file in ~/.zsh/{aliases,functions}.zsh; do
 	[ -r $file ] && source $file
 done
 unset file
