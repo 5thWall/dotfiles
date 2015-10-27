@@ -31,3 +31,6 @@ unset file
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+# For LaTeX stuff
+eval `/usr/libexec/path_helper -s`
