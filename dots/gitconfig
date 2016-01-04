@@ -93,7 +93,7 @@
   prd = "pull-request -o -b develop"
 [core]
 	editor = vim
-	excludesfile = /Users/Andy/.gitignore
+	excludesfile = ~/.gitignore
 	pager = less -FXR
 
 [color]
