@@ -34,3 +34,8 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 # For LaTeX stuff
 eval `/usr/libexec/path_helper -s`
+
+# RVM
+[ -r ~/.rvm ] && export PATH="$PATH:$HOME/.rvm/bin"
+
+cd ..;cd -
