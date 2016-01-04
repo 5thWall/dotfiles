@@ -35,6 +35,15 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # For LaTeX stuff
 eval `/usr/libexec/path_helper -s`
 
+# gpg-agent
+if [[ $(uname) == Darwin ]]; then
+  if [ -f "${HOME}/.gpg-agent-info" ]; then
+    . "${HOME}/.gpg-agent-info"
+    export GPG_AGENT_INFO
+    export SSH_AUTH_SOCK
+  fi
+fi
+
 # RVM
 [ -r ~/.rvm ] && export PATH="$PATH:$HOME/.rvm/bin"
 
