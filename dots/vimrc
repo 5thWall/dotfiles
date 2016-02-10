@@ -6,9 +6,6 @@ let mapleader = "<Space>"
 "" matchit
 runtime macros/matchit.vim
 
-"" powerline fonts
-let g:airline_powerline_fonts = 1
-
 "" pathogen
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
@@ -16,7 +13,6 @@ call pathogen#infect()
 " COLORS! WOOOO!
 syntax on
 set background=dark
-" set background=light
 let g:solarized_hitrail=1
 set cursorline
 set cursorcolumn
@@ -24,6 +20,8 @@ set incsearch
 set hlsearch
 nnoremap <CR> :nohlsearch<CR>
 colorscheme solarized
+let g:airline_theme = "solarized"
+let g:airline_powerline_fonts = 1
 filetype plugin indent on
 
 " keep the status line up
