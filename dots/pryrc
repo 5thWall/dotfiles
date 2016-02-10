@@ -28,7 +28,7 @@ begin
 
   # If you want awesome_print without automatic pagination, use the line below
   # Pry.config.print = proc { |output, value| output.puts value.ai }
-rescue LoadError => err
+rescue LoadError
   puts "gem install awesome_print  # <-- highly recommended"
 end
 
@@ -43,6 +43,14 @@ default_command_set = Pry::CommandSet.new do
     system 'clear'
     if ENV['RAILS_ENV']
       output.puts "Rails Environment: " + ENV['RAILS_ENV']
+    end
+  end
+
+  command "sql_logging", "Turn SQL logging on and off in Rails." do |on|
+    if ENV['RAILS_ENV'] || defined?(Rails)
+      ActiveRecord::Base.logger.level = (on ? 0 : 1)
+    else
+      pp "No rails env defined"
     end
   end
 
