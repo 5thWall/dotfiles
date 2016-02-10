@@ -6,8 +6,8 @@ let mapleader = "<Space>"
 "" matchit
 runtime macros/matchit.vim
 
-"" powerline
-set rtp+=~/.powerline/powerline/bindings/vim
+"" powerline fonts
+let g:airline_powerline_fonts = 1
 
 "" pathogen
 runtime bundle/vim-pathogen/autoload/pathogen.vim
