@@ -4,8 +4,10 @@ source ~/.antigen/antigen.zsh
 antigen-use oh-my-zsh
 
 # Set the theme
-antigen-theme blinks # agnoster, juanghurtado
+# antigen-theme blinks # agnoster, juanghurtado
 # . $HOME/.powerline/powerline/bindings/zsh/powerline.zsh
+antigen bundle mafredri/zsh-async
+antigen bundle sindresorhus/pure
 
 # Plugins
 antigen-bundle github
