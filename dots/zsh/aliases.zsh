@@ -5,6 +5,9 @@ alias reload='source ~/.zshrc'
 alias vim='nvim'
 alias e='nvim'
 
+# Show last few files
+alias lf='ls -lrt | tail -6'
+
 # Get stuff from brew
 alias iwant='brew install'
 
