@@ -2,8 +2,7 @@
 alias reload='source ~/.zshrc'
 
 # nvim is vim
-alias vim='nvim'
-alias e='nvim'
+alias e=$EDITOR
 
 # Show last few files
 alias lf='ls -lrt | tail -6'
