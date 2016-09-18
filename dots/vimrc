@@ -1,34 +1,102 @@
 " Plugins yo!
 set nocompatible
-filetype plugin indent on
 let mapleader = "<Space>"
+
+" PLUGINS FOR THE PLUGIN GOD
+call plug#begin("~/.config/nvim/plug")
+" Look and feel plugins
+Plug 'altercation/vim-colors-solarized'
+Plug 'itchyny/lightline.vim'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+
+" Language Specific Plugins
+" Ruby!
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-bundler'
+
+" Elixir!
+Plug 'elixir-lang/vim-elixir'
+Plug 'mattreduce/vim-mix'
+
+" Elm!
+" Plug 'lambdatoast/elm.vim'
+Plug 'ElmCast/elm-vim'
+
+" Markdown
+Plug 'tpope/vim-markdown'
+
+" Convenience Plugins
+" Formatting
+Plug 'godlygeek/tabular'
+Plug 'dhruvasagar/vim-table-mode'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'ntpeters/vim-better-whitespace'
+
+" Navigating
+Plug 'unblevable/quick-scope'
+Plug 'tpope/vim-unimpaired'
+Plug 'scrooloose/nerdtree'
+Plug 'majutsushi/tagbar'
+
+" Project Management
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-projectionist'
+
+" Serch
+Plug 'rking/ag.vim'
+Plug 'kien/ctrlp.vim'
+
+" Documentation
+Plug 'rizzatti/funcoo.vim' | Plug 'rizzatti/dash.vim'
+
+" Syntax and testing
+Plug 'janko-m/vim-test'
+Plug 'scrooloose/syntastic'
+"Plug 'benekastah/neomake'
+
+" Fun
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+call plug#end()
 
 "" matchit
 runtime macros/matchit.vim
 
-"" pathogen
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
-
-" COLORS! WOOOO!
+" Look and Feel
 syntax on
 set background=dark
-let g:solarized_hitrail=1
 set cursorline
 set cursorcolumn
+colorscheme solarized
+let g:solarized_hitrail=1
+let g:lightline = {
+    \ 'colorshceme': 'solarized',
+    \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+    \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
+    \ }
+let g:limelight_conceal_ctermfg = 245
+let g:limelight_conceal_guifg = '#586e75'
 set incsearch
 set hlsearch
+set scrolloff=3
+set linebreak
 nnoremap <CR> :nohlsearch<CR>
-colorscheme solarized
-let g:airline_theme = "solarized"
-let g:airline_powerline_fonts = 1
 filetype plugin indent on
+
+
+" Line numbers
+set number
+if v:version >= 704
+  set relativenumber
+  nnoremap <C-n> :set rnu!<CR>
+end
 
 " keep the status line up
 set laststatus=2
-
-" Let me switch buffers without saving
-set hidden
 
 " Undo
 set undodir=$HOME/.vim/undo
@@ -54,18 +122,7 @@ set autoindent
 nnoremap Q <nop>
 nnoremap <up> gk
 nnoremap <down> gj
-
-" Line numbers
-set number
-if v:version >= 704
-  set relativenumber
-  nnoremap <C-n> :set rnu!<CR>
-end
-" wrap lines on words
-set linebreak
-
-" Start scrolling 3 lines before border
-set scrolloff=3
+cmap w!! %!sudo tee > /dev/null %
 
 " Reread files that have been changed externally
 set autoread
@@ -74,6 +131,7 @@ set autoread
 set wildmenu
 set wildmode=full
 
+" Whitespace Cleanup
 function! TrimWhiteSpace()
   let l = line(".")
   let c = col(".")
@@ -93,9 +151,9 @@ function! Cleanup()
   call setpos('.', save_cursor)
   call setreg('/', old_query)
 endfunction
-noremap <leader>cu :silent call Cleanup()<CR>
 
 nnoremap <leader>ws :silent call TrimWhiteSpace()<CR>
+noremap <leader>cu :silent call Cleanup()<CR>
 
 if !has('win32') && match(system('uname'), 'Darwin') == 0
   nmap <silent> <Leader>d <Plug>DashSearch
@@ -106,16 +164,18 @@ if !has('win32') && match(system('uname'), 'Darwin') == 0
   endif
 endif
 
-cmap w!! %!sudo tee > /dev/null %
-
 if has('autocmd')
-  autocmd FileType ruby,javascript,haml,erb,elixir autocmd BufWritePre <buffer> :call TrimWhiteSpace()
+  autocmd FileType ruby,javascript,haml,erb,elixir,eex,elm autocmd BufWritePre <buffer> :call TrimWhiteSpace()
   autocmd FileType markdown,mkd set spell
   autocmd FileType markdown,mkd set formatprg=par
 endif
 
 " Indent all the html tags
 let g:html_indent_inctags = "body,head,tbody,p"
+
+"""""""""""""""
+" PLUGIN CONFIG
+"""""""""""""""
 
 " TAGBAR CONFIG
 let g:tagbar_type_elixir = {
@@ -142,6 +202,7 @@ let g:tagbar_type_elixir = {
 let syntastic_mode_map = { 'passive_filetypes': ['html', 'cucumber'] }
 " END Syntastic config
 
+" Quickscope config
 " Only show quick-scope highlights after f/F/t/T is pressed
 function! Quick_scope_selective(movement)
   let needs_disabling = 0
@@ -165,3 +226,18 @@ let g:qs_enable = 0
 for i in  [ 'f', 'F', 't', 'T' ]
   execute 'noremap <expr> <silent>' .  i . " Quick_scope_selective('".  i . "')"
 endfor
+" End Quickscope config
+
+" Goyo
+function s:goyo_enter()
+  set scrolloff=999
+  set cursorcolumn!
+endfunction
+
+function s:goyo_leave()
+  set scrolloff=3
+  set cursorcolumn
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
