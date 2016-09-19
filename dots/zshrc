@@ -47,7 +47,4 @@ if [[ $(uname) == Darwin ]]; then
   fi
 fi
 
-# RVM
-[ -r ~/.rvm ] && export PATH="$PATH:$HOME/.rvm/bin"
-
 cd ..;cd -
