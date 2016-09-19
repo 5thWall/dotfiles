@@ -1,6 +1,13 @@
 # Reload the bash script
 alias reload='source ~/.zshrc'
 
+# nvim is vim
+alias vim='nvim'
+alias e='nvim'
+
+# Show last few files
+alias lf='ls -lrt | tail -6'
+
 # Get stuff from brew
 alias iwant='brew install'
 
