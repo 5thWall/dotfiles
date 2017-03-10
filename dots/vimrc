@@ -27,6 +27,9 @@ Plug 'ElmCast/elm-vim'
 " Markdown
 Plug 'tpope/vim-markdown'
 
+" Json
+Plug 'elzr/vim-json'
+
 " Convenience Plugins
 " Formatting
 Plug 'godlygeek/tabular'
@@ -55,7 +58,8 @@ Plug 'rizzatti/funcoo.vim' | Plug 'rizzatti/dash.vim'
 
 " Syntax and testing
 Plug 'janko-m/vim-test'
-Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
+" Plug 'scrooloose/syntastic'
 "Plug 'benekastah/neomake'
 
 " Fun
@@ -87,6 +91,10 @@ set linebreak
 nnoremap <CR> :nohlsearch<CR>
 filetype plugin indent on
 
+if has('gui_macvim')
+  set macligatures
+  set guifont=Fira\ Code:h14
+endif
 
 " Line numbers
 set number
@@ -122,6 +130,7 @@ set autoindent
 nnoremap Q <nop>
 nnoremap <up> gk
 nnoremap <down> gj
+set backspace=indent,eol,start
 cmap w!! %!sudo tee > /dev/null %
 
 " Reread files that have been changed externally
@@ -130,6 +139,11 @@ set autoread
 " Make ex-mode tab completion work like zsh
 set wildmenu
 set wildmode=full
+
+" Set par
+if executable('par')
+  set formatprg=par
+end
 
 " Whitespace Cleanup
 function! TrimWhiteSpace()
