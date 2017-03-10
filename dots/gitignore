@@ -21,10 +21,10 @@ tmtags
 *.sublime-workspace
 
 # Vim files
-[._]*.s[a-w][a-z]
-[._]s[a-w][a-z]
-*.s[a-w][a-z]
-*.un~
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-v][a-z]
+[._]sw[a-p]
 Session.vim
 .netrwhist
 *~
