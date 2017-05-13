@@ -13,7 +13,6 @@ antigen bundle sindresorhus/pure
 antigen-bundle github
 antigen-bundle heroku
 antigen-bundle osx
-antigen-bundle pow
 antigen-bundle rails
 antigen-bundle rake
 antigen-bundle bundler
@@ -24,16 +23,13 @@ antigen bundle wd
 antigen-apply
 
 # Custom
-for file in ~/.zsh/{aliases,functions}.zsh; do
+for file in ~/.zsh/{aliases,functions,completions}.zsh; do
 	[ -r $file ] && source $file
 done
 unset file
 
 # Include secrets...
 [ -r ~/.secret ] && source ~/.secret
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
 
 # gpg-agent
 if [[ $(uname) == Darwin ]]; then

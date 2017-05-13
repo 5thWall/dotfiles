@@ -4,6 +4,9 @@ alias reload='source ~/.zshrc'
 # nvim is vim
 alias e=$EDITOR
 
+# Alias elm-format so it's usefull
+alias elm-format='elm-format-0.18'
+
 # Show last few files
 alias lf='ls -lrt | tail -6'
 

@@ -34,12 +34,12 @@ export LESS="-R -X"
 export DISABLE_AUTO_TITLE=true
 
 # Homebrew and rbenv on path
-export PATH="/Applications/Postgres93.app/Contents/MacOS/bin:$PATH"
-export PATH="/usr/local/share/npm/bin:$PATH"
-export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="/usr/local/bin:$PATH:/usr/local/sbin"
+export PATH="$HOME/.rbenv/bin:$PATH"
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
 export PATH="$HOME/bin:$PATH"
 
 # Init rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+[ -r $HOME/.asdf/asdf.sh ] && source $HOME/.asdf/asdf.sh
