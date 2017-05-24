@@ -60,3 +60,9 @@ done
 # http://xkcd.com/530/
 alias stfu="osascript -e 'set volume output muted true'"
 alias pumpitup="osascript -e 'set volume 10'"
+
+#################
+# Suffix Aliases
+#################
+
+alias -s rb=e

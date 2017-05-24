@@ -23,7 +23,7 @@ antigen bundle wd
 antigen-apply
 
 # Custom
-for file in ~/.zsh/{aliases,functions,completions}.zsh; do
+for file in ~/.zsh/{aliases,functions,completion}.zsh; do
 	[ -r $file ] && source $file
 done
 unset file

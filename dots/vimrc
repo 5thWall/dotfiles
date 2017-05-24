@@ -1,6 +1,7 @@
 " Plugins yo!
 set nocompatible
-let mapleader = "<Space>"
+let mapleader = "\<Space>"
+nnoremap <Space> <Nop>
 
 " PLUGINS FOR THE PLUGIN GOD
 call plug#begin("~/.vim/plug")
@@ -49,6 +50,7 @@ Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-projectionist'
+Plug 'vimwiki/vimwiki'
 
 " Serch
 Plug 'rking/ag.vim'
@@ -167,7 +169,7 @@ function! Cleanup()
   call setreg('/', old_query)
 endfunction
 
-nnoremap <leader>ws :silent call TrimWhiteSpace()<CR>
+nnoremap <leader>tws :silent call TrimWhiteSpace()<CR>
 noremap <leader>cu :silent call Cleanup()<CR>
 
 if !has('win32') && match(system('uname'), 'Darwin') == 0
@@ -256,3 +258,8 @@ endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
+" End Goyo config
+
+" Vimwiki Config
+map <Leader>tl <Plug>VimwikiToggleListItem
+" End Vimwiki Config
