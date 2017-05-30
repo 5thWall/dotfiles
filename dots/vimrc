@@ -183,8 +183,8 @@ endif
 
 if has('autocmd')
   autocmd FileType ruby,javascript,haml,erb,elixir,eex,elm autocmd BufWritePre <buffer> :call TrimWhiteSpace()
-  autocmd FileType markdown,mkd set spell
-  autocmd FileType markdown,mkd set formatprg=par
+  autocmd FileType markdown,mkd,wiki set spell
+  autocmd FileType markdown,mkd,wiki set formatprg=par
 endif
 
 " Indent all the html tags

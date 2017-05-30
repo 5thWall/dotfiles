@@ -44,3 +44,6 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # Init asdf
 [ -r $HOME/.asdf/asdf.sh ] && source $HOME/.asdf/asdf.sh
+
+# Github Enterprise
+export GITHUB_HOST=github.optum.com
