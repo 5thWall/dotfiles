@@ -13,9 +13,6 @@
 [submodule "dots/antigen"]
 	path = dots/antigen
 	url = git://github.com/zsh-users/antigen.git
-[submodule "dots/powerline"]
-	path = dots/powerline
-	url = git://github.com/Lokaltog/powerline.git
 [submodule "dots/vim/bundle/vim-ruby"]
 	path = dots/vim/bundle/vim-ruby
 	url = git://github.com/vim-ruby/vim-ruby.git
