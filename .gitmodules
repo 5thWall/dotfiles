@@ -88,3 +88,6 @@
 [submodule "dots/vim/bundle/vim-airline-themes"]
 	path = dots/vim/bundle/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes.git
+[submodule "dots/tmux/plugins/tpm"]
+	path = dots/tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
