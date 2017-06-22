@@ -1,6 +1,7 @@
 " Plugins yo!
 set nocompatible
-let mapleader = "<Space>"
+let mapleader = "\<Space>"
+nnoremap <Space> <Nop>
 
 " PLUGINS FOR THE PLUGIN GOD
 call plug#begin("~/.vim/plug")
@@ -66,6 +67,7 @@ Plug 'w0rp/ale'
 " Fun
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
+Plug 'vimwiki/vimwiki'
 call plug#end()
 
 "" matchit
@@ -167,7 +169,7 @@ function! Cleanup()
   call setreg('/', old_query)
 endfunction
 
-nnoremap <leader>ws :silent call TrimWhiteSpace()<CR>
+nnoremap <leader>tws :silent call TrimWhiteSpace()<CR>
 noremap <leader>cu :silent call Cleanup()<CR>
 
 if !has('win32') && match(system('uname'), 'Darwin') == 0
