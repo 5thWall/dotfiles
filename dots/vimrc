@@ -94,6 +94,9 @@ set linebreak
 nnoremap <CR> :nohlsearch<CR>
 filetype plugin indent on
 
+" Highlight greek semicolon (;) as error. This is gonna save me one day.
+au Syntax * syn match Error /\%u37e/
+
 if has('gui_macvim')
   set macligatures
   set guifont=Fira\ Code:h14
