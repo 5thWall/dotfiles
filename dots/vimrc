@@ -1,3 +1,6 @@
+" Set regexpengine for performance in ruby files
+set regexpengine=1
+
 " Plugins yo!
 set nocompatible
 let mapleader = "\<Space>"
@@ -44,7 +47,7 @@ Plug 'tpope/vim-abolish'
 Plug 'unblevable/quick-scope'
 Plug 'tpope/vim-unimpaired'
 Plug 'scrooloose/nerdtree'
-Plug 'majutsushi/tagbar'
+" Plug 'majutsushi/tagbar'
 
 " Project Management
 Plug 'tpope/vim-fugitive'
