@@ -179,16 +179,12 @@ if !has('win32') && match(system('uname'), 'Darwin') == 0
   nmap <silent> <Leader>d <Plug>DashSearch
   nmap <silent> <Leader>dg <Plug>DashGlobalSearch
 
-  if has('autocmd')
-    autocmd FileType markdown,mkd nnoremap <Leader>P :silent !open -a Marked.app '%:p'<CR><C-l>
-  endif
+  autocmd FileType markdown,mkd nnoremap <Leader>P :silent !open -a Marked.app '%:p'<CR><C-l>
 endif
 
-if has('autocmd')
-  autocmd FileType ruby,javascript,haml,erb,elixir,eex,elm autocmd BufWritePre <buffer> :call TrimWhiteSpace()
-  autocmd FileType markdown,mkd,wiki set spell
-  autocmd FileType markdown,mkd,wiki set formatprg=par
-endif
+autocmd FileType ruby,javascript,haml,erb,elixir,eex,elm autocmd BufWritePre <buffer> :call TrimWhiteSpace()
+autocmd FileType markdown,mkd,wiki set spell
+autocmd FileType markdown,mkd,wiki set formatprg=par
 
 " Indent all the html tags
 let g:html_indent_inctags = "body,head,tbody,p"
