@@ -1,3 +1,6 @@
+" Set rehexpengine for performance in ruby files
+set regexpengine=1
+
 " Plugins yo!
 set nocompatible
 let mapleader = "\<Space>"
@@ -8,8 +11,6 @@ call plug#begin("~/.vim/plug")
 " Look and feel plugins
 Plug 'altercation/vim-colors-solarized'
 Plug 'itchyny/lightline.vim'
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
 
 " Language Specific Plugins
 " Ruby!
@@ -61,8 +62,6 @@ Plug 'rizzatti/funcoo.vim' | Plug 'rizzatti/dash.vim'
 " Syntax and testing
 Plug 'janko-m/vim-test'
 Plug 'w0rp/ale'
-" Plug 'scrooloose/syntastic'
-"Plug 'benekastah/neomake'
 
 " Fun
 Plug 'junegunn/goyo.vim'
@@ -93,6 +92,9 @@ set scrolloff=3
 set linebreak
 nnoremap <CR> :nohlsearch<CR>
 filetype plugin indent on
+
+" Hilight greek question mark (;) as error. This is gonna save me one day.
+au Syntax * syn match Error /\%u37e/
 
 if has('gui_macvim')
   set macligatures
@@ -176,16 +178,12 @@ if !has('win32') && match(system('uname'), 'Darwin') == 0
   nmap <silent> <Leader>d <Plug>DashSearch
   nmap <silent> <Leader>dg <Plug>DashGlobalSearch
 
-  if has('autocmd')
-    autocmd FileType markdown,mkd nnoremap <Leader>P :silent !open -a Marked.app '%:p'<CR><C-l>
-  endif
+  autocmd FileType markdown,mkd nnoremap <Leader>P :silent !open -a Marked.app '%:p'<CR><C-l>
 endif
 
-if has('autocmd')
-  autocmd FileType ruby,javascript,haml,erb,elixir,eex,elm autocmd BufWritePre <buffer> :call TrimWhiteSpace()
-  autocmd FileType markdown,mkd set spell
-  autocmd FileType markdown,mkd set formatprg=par
-endif
+autocmd FileType ruby,javascript,haml,erb,elixir,eex,elm autocmd BufWritePre <buffer> :call TrimWhiteSpace()
+autocmd FileType markdown,mkd set spell
+autocmd FileType markdown,mkd set formatprg=par
 
 " Indent all the html tags
 let g:html_indent_inctags = "body,head,tbody,p"
@@ -215,9 +213,9 @@ let g:tagbar_type_elixir = {
       \ }
 " END TAGBAR CONFIG
 
-" Syntastic config
-let syntastic_mode_map = { 'passive_filetypes': ['html', 'cucumber'] }
-" END Syntastic config
+" ale Config
+let g:ale_ruby_rubocop_options = '--parallel'
+" END ale Config
 
 " Quickscope config
 " Only show quick-scope highlights after f/F/t/T is pressed
@@ -258,3 +256,7 @@ endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+" Vimwiki Config
+map <Leader>tl <Plug>VimwikiToggleListItem
+" END Vimwiki Config
