@@ -222,7 +222,6 @@ let g:tagbar_type_elixir = {
 " END Syntastic config
 
 " ale Config
-let g:ale_ruby_rubocop_executable = 'bundle exec rubocop'
 let g:ale_ruby_rubocop_options = '--parallel'
 " END ale Config
 
