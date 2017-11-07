@@ -1,13 +1,15 @@
+scriptencoding utf-8
+set nocompatible
+
 " Set regexpengine for performance in ruby files
 set regexpengine=1
 
 " Plugins yo!
-set nocompatible
-let mapleader = "\<Space>"
+let g:mapleader = "\<Space>"
 nnoremap <Space> <Nop>
 
 " PLUGINS FOR THE PLUGIN GOD
-call plug#begin("~/.vim/plug")
+call plug#begin('~/.vim/plug')
 " Look and feel plugins
 Plug 'altercation/vim-colors-solarized'
 Plug 'itchyny/lightline.vim'
@@ -98,7 +100,9 @@ nnoremap <CR> :nohlsearch<CR>
 filetype plugin indent on
 
 " Highlight greek semicolon (;) as error. This is gonna save me one day.
-au Syntax * syn match Error /\%u37e/
+aug saveme
+  au Syntax * syn match Error /\%u37e/
+aug END
 
 if has('gui_macvim')
   set macligatures
@@ -156,23 +160,23 @@ end
 
 " Whitespace Cleanup
 function! TrimWhiteSpace()
-  let l = line(".")
-  let c = col(".")
+  let l:l = line('.')
+  let l:c = col('.')
   %s/\s\+$//e
-  call cursor(l, c)
+  call cursor(l:l, l:c)
 endfunction
 
 function! Cleanup()
-  let save_cursor = getpos(".")
-  let old_query   = getreg('/')
+  let l:save_cursor = getpos('.')
+  let l:old_query   = getreg('/')
 
   :retab
   :normal gg=G
   :%s/\s\+$//e
   :%s/\n\{3,}/\r\r/e
 
-  call setpos('.', save_cursor)
-  call setreg('/', old_query)
+  call setpos('.', l:save_cursor)
+  call setreg('/', l:old_query)
 endfunction
 
 nnoremap <leader>tws :silent call TrimWhiteSpace()<CR>
@@ -182,39 +186,44 @@ if !has('win32') && match(system('uname'), 'Darwin') == 0
   nmap <silent> <Leader>d <Plug>DashSearch
   nmap <silent> <Leader>dg <Plug>DashGlobalSearch
 
-  autocmd FileType markdown,mkd nnoremap <Leader>P :silent !open -a Marked.app '%:p'<CR><C-l>
+  aug markdown
+    autocmd FileType markdown,mkd nnoremap <Leader>P :silent !open -a Marked.app '%:p'<CR><C-l>
+  aug END
 endif
 
-autocmd FileType ruby,javascript,haml,erb,elixir,eex,elm autocmd BufWritePre <buffer> :call TrimWhiteSpace()
-autocmd FileType markdown,mkd,wiki set spell
-autocmd FileType markdown,mkd,wiki set formatprg=par
+aug filehelp
+  autocmd FileType ruby,javascript,haml,erb,elixir,eex,elm autocmd BufWritePre <buffer> :call TrimWhiteSpace()
+  autocmd FileType markdown,mkd,wiki set spell
+  autocmd FileType markdown,mkd,wiki set formatprg=par
+  autocmd BufNewFile,BufRead *.reek set filetype=yaml
+aug END
 
 " Indent all the html tags
-let g:html_indent_inctags = "body,head,tbody,p"
+let g:html_indent_inctags = 'body,head,tbody,p'
 
 """""""""""""""
 " PLUGIN CONFIG
 """""""""""""""
 
 " TAGBAR CONFIG
-let g:tagbar_type_elixir = {
-      \ 'ctagstype' : 'elixir',
-      \ 'kinds' : [
-      \ 'f:functions (public)',
-      \ 'g:functions (private)',
-      \ 'c:callbacks',
-      \ 'd:delegates',
-      \ 'e:exceptions',
-      \ 'i:implementations',
-      \ 'a:macros',
-      \ 'o:operators',
-      \ 'm:modules',
-      \ 'p:protocols',
-      \ 'r:records',
-      \ 't:types',
-      \ 'z:foo'
-      \ ]
-      \ }
+" let g:tagbar_type_elixir = {
+"       \ 'ctagstype' : 'elixir',
+"       \ 'kinds' : [
+"       \ 'f:functions (public)',
+"       \ 'g:functions (private)',
+"       \ 'c:callbacks',
+"       \ 'd:delegates',
+"       \ 'e:exceptions',
+"       \ 'i:implementations',
+"       \ 'a:macros',
+"       \ 'o:operators',
+"       \ 'm:modules',
+"       \ 'p:protocols',
+"       \ 'r:records',
+"       \ 't:types',
+"       \ 'z:foo'
+"       \ ]
+"       \ }
 " END TAGBAR CONFIG
 
 " Syntastic config
@@ -228,20 +237,20 @@ let g:ale_ruby_rubocop_options = '--parallel'
 " Quickscope config
 " Only show quick-scope highlights after f/F/t/T is pressed
 function! Quick_scope_selective(movement)
-  let needs_disabling = 0
+  let l:needs_disabling = 0
   if !g:qs_enable
     QuickScopeToggle
     redraw
-    let needs_disabling = 1
+    let l:needs_disabling = 1
   endif
 
-  let letter = nr2char(getchar())
+  let l:letter = nr2char(getchar())
 
-  if needs_disabling
+  if l:needs_disabling
     QuickScopeToggle
   endif
 
-  return a:movement . letter
+  return a:movement . l:letter
 endfunction
 
 let g:qs_enable = 0
@@ -262,8 +271,10 @@ function s:goyo_leave()
   set cursorcolumn
 endfunction
 
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
+aug goyo
+  autocmd! User GoyoEnter nested call <SID>goyo_enter()
+  autocmd! User GoyoLeave nested call <SID>goyo_leave()
+aug END
 " End Goyo config
 
 " Vimwiki Config
