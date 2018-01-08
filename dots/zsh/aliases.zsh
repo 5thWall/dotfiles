@@ -58,7 +58,7 @@ for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
 done
 
 # http://xkcd.com/530/
-alias stfu="osascript -e 'set volume output muted true'"
+alias shutup="osascript -e 'set volume output muted true'"
 alias pumpitup="osascript -e 'set volume 10'"
 
 #################
