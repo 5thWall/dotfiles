@@ -155,7 +155,7 @@ set wildmode=full
 
 " Set par
 if executable('par')
-  set formatprg=par
+  set formatprg=par\ -w120
 end
 
 " Whitespace Cleanup
