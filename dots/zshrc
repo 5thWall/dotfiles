@@ -23,21 +23,12 @@ antigen bundle wd
 antigen-apply
 
 # Custom
-for file in ~/.zsh/{aliases,functions,completions}.zsh; do
+for file in ~/.zsh/{aliases,functions,completion}.zsh; do
 	[ -r $file ] && source $file
 done
 unset file
 
 # Include secrets...
 [ -r ~/.secret ] && source ~/.secret
-
-# gpg-agent
-if [[ $(uname) == Darwin ]]; then
-  if [ -f "${HOME}/.gpg-agent-info" ]; then
-    . "${HOME}/.gpg-agent-info"
-    export GPG_AGENT_INFO
-    export SSH_AUTH_SOCK
-  fi
-fi
 
 cd ..;cd -
