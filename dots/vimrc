@@ -1,10 +1,8 @@
 scriptencoding utf-8
-set nocompatible
 
 " Set regexpengine for performance in ruby files
 set regexpengine=1
 
-" Plugins yo!
 let g:mapleader = "\<Space>"
 nnoremap <Space> <Nop>
 
@@ -14,8 +12,6 @@ call plug#begin('~/.vim/plug')
 Plug 'altercation/vim-colors-solarized'
 Plug 'itchyny/lightline.vim'
 Plug 'yggdroot/indentLine'
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
 
 " Language Specific Plugins
 " Ruby!
@@ -28,7 +24,6 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'mattreduce/vim-mix'
 
 " Elm!
-" Plug 'lambdatoast/elm.vim'
 Plug 'ElmCast/elm-vim'
 
 " Markdown
@@ -45,12 +40,12 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-abolish'
+Plug 'editorconfig/editorconfig-vim'
 
 " Navigating
 Plug 'unblevable/quick-scope'
 Plug 'tpope/vim-unimpaired'
 Plug 'scrooloose/nerdtree'
-" Plug 'majutsushi/tagbar'
 
 " Project Management
 Plug 'tpope/vim-fugitive'
@@ -68,8 +63,6 @@ Plug 'rizzatti/funcoo.vim' | Plug 'rizzatti/dash.vim'
 " Syntax and testing
 Plug 'janko-m/vim-test'
 Plug 'w0rp/ale'
-" Plug 'scrooloose/syntastic'
-"Plug 'benekastah/neomake'
 
 " Fun
 Plug 'junegunn/goyo.vim'
@@ -101,9 +94,9 @@ nnoremap <CR> :nohlsearch<CR>
 filetype plugin indent on
 
 " Highlight greek semicolon (;) as error. This is gonna save me one day.
-aug saveme
-  au Syntax * syn match Error /\%u37e/
-aug END
+augroup saveme
+  autocmd Syntax * syn match Error /\%u37e/
+augroup END
 
 if has('gui_macvim')
   set macligatures
@@ -163,7 +156,7 @@ end
 function! TrimWhiteSpace()
   let l:l = line('.')
   let l:c = col('.')
-  %s/\s\+$//e
+  %substitute/\s\+$//e
   call cursor(l:l, l:c)
 endfunction
 
@@ -172,9 +165,9 @@ function! Cleanup()
   let l:old_query   = getreg('/')
 
   :retab
-  :normal gg=G
-  :%s/\s\+$//e
-  :%s/\n\{3,}/\r\r/e
+  :normal! gg=G
+  :%substitute/\s\+$//e
+  :%substitute/\n\{3,}/\r\r/e
 
   call setpos('.', l:save_cursor)
   call setreg('/', l:old_query)
@@ -187,17 +180,21 @@ if !has('win32') && match(system('uname'), 'Darwin') == 0
   nmap <silent> <Leader>d <Plug>DashSearch
   nmap <silent> <Leader>dg <Plug>DashGlobalSearch
 
-  aug markdown
+  augroup markdown
     autocmd FileType markdown,mkd nnoremap <Leader>P :silent !open -a Marked.app '%:p'<CR><C-l>
-  aug END
+  augroup END
 endif
 
-aug filehelp
-  autocmd FileType ruby,javascript,haml,erb,elixir,eex,elm autocmd BufWritePre <buffer> :call TrimWhiteSpace()
+augroup filehelp
+  autocmd FileType ruby,java,javascript,haml,erb,elixir,eex,elm autocmd BufWritePre <buffer> :call TrimWhiteSpace()
   autocmd FileType markdown,mkd,wiki set spell
   autocmd FileType markdown,mkd,wiki set formatprg=par
   autocmd BufNewFile,BufRead *.reek set filetype=yaml
-aug END
+augroup END
+
+augroup java
+  autocmd FileType java set autoindent noexpandtab tabstop=4 shiftwidth=4
+augroup END
 
 " Indent all the html tags
 let g:html_indent_inctags = 'body,head,tbody,p'
@@ -206,34 +203,13 @@ let g:html_indent_inctags = 'body,head,tbody,p'
 " PLUGIN CONFIG
 """""""""""""""
 
-" TAGBAR CONFIG
-" let g:tagbar_type_elixir = {
-"       \ 'ctagstype' : 'elixir',
-"       \ 'kinds' : [
-"       \ 'f:functions (public)',
-"       \ 'g:functions (private)',
-"       \ 'c:callbacks',
-"       \ 'd:delegates',
-"       \ 'e:exceptions',
-"       \ 'i:implementations',
-"       \ 'a:macros',
-"       \ 'o:operators',
-"       \ 'm:modules',
-"       \ 'p:protocols',
-"       \ 'r:records',
-"       \ 't:types',
-"       \ 'z:foo'
-"       \ ]
-"       \ }
-" END TAGBAR CONFIG
-
-" Syntastic config
-" let syntastic_mode_map = { 'passive_filetypes': ['html', 'cucumber'] }
-" END Syntastic config
-
 " ale Config
 let g:ale_ruby_rubocop_options = '--parallel'
 " END ale Config
+
+" IndentLine Config
+let g:indentLine_char = '┊'
+" END IndentLine Config
 
 " Quickscope config
 " Only show quick-scope highlights after f/F/t/T is pressed
@@ -272,10 +248,10 @@ function s:goyo_leave()
   set cursorcolumn
 endfunction
 
-aug goyo
+augroup goyo
   autocmd! User GoyoEnter nested call <SID>goyo_enter()
   autocmd! User GoyoLeave nested call <SID>goyo_leave()
-aug END
+augroup END
 " End Goyo config
 
 " Vimwiki Config
