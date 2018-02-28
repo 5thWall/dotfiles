@@ -30,5 +30,3 @@ unset file
 
 # Include secrets...
 [ -r ~/.secret ] && source ~/.secret
-
-cd ..;cd -
