@@ -21,9 +21,10 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 # Larger bash history (allow 32³ entries; default is 500)
 export HISTSIZE=32768
 export HISTFILESIZE=$HISTSIZE
-export HISTCONTROL=ignoredups:ignorespace
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
 # Make some commands not show up in history
-export HISTIGNORE="ls:ls *:cd:cd -:pwd;exit:date:* --help"
+export HISTORY_IGNORE="ls|ls *|cd|ll|la|cd -|pwd|exit|date|* --help"
 
 # LESS options
 #  -R Colors
