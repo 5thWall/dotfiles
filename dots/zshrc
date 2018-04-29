@@ -1,26 +1,24 @@
-source ~/.antigen/antigen.zsh
+source ~/.antigen.zsh
 
-#load the oh-my-zsh library
-antigen-use oh-my-zsh
+# load the oh-my-zsh library
+antigen use oh-my-zsh
+
 
 # Set the theme
-# antigen-theme blinks # agnoster, juanghurtado
-# . $HOME/.powerline/powerline/bindings/zsh/powerline.zsh
 antigen bundle mafredri/zsh-async
 antigen bundle sindresorhus/pure
 
-# Plugins
-antigen-bundle github
-antigen-bundle heroku
-antigen-bundle osx
-antigen-bundle rails
-antigen-bundle rake
-antigen-bundle bundler
+antigen bundle github
+antigen bundle heroku
+antigen bundle osx
+antigen bundle rails
+antigen bundle rake
+antigen bundle bundler
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle wd
 
 # Finished loading antigen
-antigen-apply
+antigen apply
 
 # Custom
 for file in ~/.zsh/{aliases,functions,completion}.zsh; do
@@ -30,5 +28,3 @@ unset file
 
 # Include secrets...
 [ -r ~/.secret ] && source ~/.secret
-
-cd ..;cd -

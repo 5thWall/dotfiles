@@ -26,8 +26,10 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'mattreduce/vim-mix'
 
 " Elm!
-" Plug 'lambdatoast/elm.vim'
 Plug 'ElmCast/elm-vim'
+
+" Rust!
+Plug 'rust-lang/rust.vim'
 
 " Markdown
 Plug 'tpope/vim-markdown'
@@ -48,7 +50,6 @@ Plug 'tpope/vim-abolish'
 Plug 'unblevable/quick-scope'
 Plug 'tpope/vim-unimpaired'
 Plug 'scrooloose/nerdtree'
-" Plug 'majutsushi/tagbar'
 
 " Project Management
 Plug 'tpope/vim-fugitive'
@@ -191,6 +192,7 @@ endif
 
 aug filehelp
   autocmd FileType ruby,javascript,haml,erb,elixir,eex,elm autocmd BufWritePre <buffer> :call TrimWhiteSpace()
+  autocmd FileType elm set tabstop=4 softtabstop=4 shiftwidth=4
   autocmd FileType markdown,mkd,wiki set spell
   autocmd FileType markdown,mkd,wiki set formatprg=par
   autocmd BufNewFile,BufRead *.reek set filetype=yaml
@@ -203,30 +205,34 @@ let g:html_indent_inctags = 'body,head,tbody,p'
 " PLUGIN CONFIG
 """""""""""""""
 
-" TAGBAR CONFIG
-" let g:tagbar_type_elixir = {
-"       \ 'ctagstype' : 'elixir',
-"       \ 'kinds' : [
-"       \ 'f:functions (public)',
-"       \ 'g:functions (private)',
-"       \ 'c:callbacks',
-"       \ 'd:delegates',
-"       \ 'e:exceptions',
-"       \ 'i:implementations',
-"       \ 'a:macros',
-"       \ 'o:operators',
-"       \ 'm:modules',
-"       \ 'p:protocols',
-"       \ 'r:records',
-"       \ 't:types',
-"       \ 'z:foo'
-"       \ ]
-"       \ }
-" END TAGBAR CONFIG
-
 " ale Config
 let g:ale_ruby_rubocop_options = '--parallel'
 " END ale Config
+
+" Elm Config
+let g:elm_format_autosave = 1
+" END Elm Config
+
+" Goyo
+function s:goyo_enter()
+  set scrolloff=999
+  set cursorcolumn!
+endfunction
+
+function s:goyo_leave()
+  set scrolloff=3
+  set cursorcolumn
+endfunction
+
+aug goyo
+  autocmd! User GoyoEnter nested call <SID>goyo_enter()
+  autocmd! User GoyoLeave nested call <SID>goyo_leave()
+aug END
+" End Goyo config
+
+" Indentline Config
+let g:indentLine_char = '┊'
+" END Indentline Config
 
 " Quickscope config
 " Only show quick-scope highlights after f/F/t/T is pressed
@@ -254,22 +260,8 @@ for i in  [ 'f', 'F', 't', 'T' ]
 endfor
 " End Quickscope config
 
-" Goyo
-function s:goyo_enter()
-  set scrolloff=999
-  set cursorcolumn!
-endfunction
-
-function s:goyo_leave()
-  set scrolloff=3
-  set cursorcolumn
-endfunction
-
-aug goyo
-  autocmd! User GoyoEnter nested call <SID>goyo_enter()
-  autocmd! User GoyoLeave nested call <SID>goyo_leave()
-aug END
-" End Goyo config
+" Rust Config
+let g:rustfmt_autosave = 1
 
 " Vimwiki Config
 map <Leader>tl <Plug>VimwikiToggleListItem
