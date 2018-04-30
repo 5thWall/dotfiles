@@ -123,3 +123,5 @@
 	smudge = git-media-smudge %f
 [diff]
   tool = vimdiff
+[advice]
+	ignoredHook = false
