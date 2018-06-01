@@ -10,6 +10,12 @@ alias elm-format='elm-format-0.18'
 # Show last few files
 alias lf='ls -lrt | tail -6'
 
+if which exa > /dev/null; then
+  alias ls=exa
+  alias la='exa -la'
+  alias lf='ls -lrt modified | tail -6'
+fi
+
 # Get stuff from brew
 alias iwant='brew install'
 
