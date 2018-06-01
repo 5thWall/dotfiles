@@ -9,6 +9,7 @@
 	# More log stuff
 	lol = log --graph --decorate --pretty=oneline --abbrev-commit
 	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	last = whatchanged -1
 
 	# Pull in remote changes for the current repository and all its submodules
 	pa = !"git pull; git submodule foreach git pull origin master"
