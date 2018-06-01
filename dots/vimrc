@@ -14,23 +14,35 @@ Plug 'itchyny/lightline.vim'
 Plug 'yggdroot/indentLine'
 
 " Language Specific Plugins
-" Ruby!
+" Ruby
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-bundler'
 
-" Elixir!
+" Rust
+Plug 'rust-lang/rust.vim'
+
+" Elixir
 Plug 'elixir-lang/vim-elixir'
 Plug 'mattreduce/vim-mix'
 
-" Elm!
+" Elm
 Plug 'ElmCast/elm-vim'
 
 " Markdown
 Plug 'tpope/vim-markdown'
 
-" Json
+" JSON
 Plug 'elzr/vim-json'
+
+" Scala
+Plug 'derekwyatt/vim-scala'
+
+" TOML
+Plug 'cespare/vim-toml'
+
+" PlantUML
+Plug 'aklt/plantuml-syntax'
 
 " Convenience Plugins
 " Formatting
@@ -63,6 +75,7 @@ Plug 'rizzatti/funcoo.vim' | Plug 'rizzatti/dash.vim'
 " Syntax and testing
 Plug 'janko-m/vim-test'
 Plug 'w0rp/ale'
+Plug 'maximbaz/lightline-ale'
 
 " Fun
 Plug 'junegunn/goyo.vim'
@@ -84,6 +97,19 @@ let g:lightline = {
     \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
     \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
     \ }
+let g:lightline.component_expand = {
+    \ 'linter_checking': 'lightline#ale#checking',
+    \ 'linter_warnings': 'lightline#ale#warnings',
+    \ 'linter_errors':   'lightline#ale#errors',
+    \ 'linter_ok': 'lightline#ale#okay',
+    \ }
+let g:lightline.component_type = {
+    \ 'linter_checking': 'left',
+    \ 'linter_warnings': 'warning',
+    \ 'linter_errors': 'error',
+    \ 'linter_ok': 'left',
+    \ }
+" let g:lightline.active = { 'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ]] }
 let g:limelight_conceal_ctermfg = 245
 let g:limelight_conceal_guifg = '#586e75'
 set incsearch
@@ -188,7 +214,6 @@ endif
 augroup filehelp
   autocmd FileType ruby,java,javascript,haml,erb,elixir,eex,elm autocmd BufWritePre <buffer> :call TrimWhiteSpace()
   autocmd FileType markdown,mkd,wiki set spell
-  autocmd FileType markdown,mkd,wiki set formatprg=par
   autocmd BufNewFile,BufRead *.reek set filetype=yaml
 augroup END
 
@@ -236,6 +261,14 @@ for i in  [ 'f', 'F', 't', 'T' ]
   execute 'noremap <expr> <silent>' .  i . " Quick_scope_selective('".  i . "')"
 endfor
 " End Quickscope config
+
+" Scala Config
+let g:scala_scaladoc_indent = 1
+" End Scala Config
+
+" Rust Config
+let g:rustfmt_autosave = 1
+" End Rust Config
 
 " Goyo
 function s:goyo_enter()
