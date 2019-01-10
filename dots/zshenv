@@ -40,6 +40,9 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
 export PATH="$HOME/bin:$PATH"
 
+# Init rustup
+[ -r $HOME/.cargo/env ] && source $HOME/.cargo/env
+
 # Init rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 

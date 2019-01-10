@@ -7,3 +7,6 @@
 if which oc > /dev/null; then
   source <(oc completion zsh)
 fi
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/vault vault
