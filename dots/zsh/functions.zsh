@@ -1,4 +1,4 @@
-# Hilight source
+# Highlight source
 function hl() {
   source-highlight -f esc -n -i "$1" -o STDOUT | less -R
 }

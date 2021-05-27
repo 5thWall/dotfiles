@@ -1,6 +1,4 @@
 #! /bin/sh
 set -e
-PATH="/usr/local/bin:$PATH"
-trap "rm -f .git/tags.$$" EXIT
-ctags --tag-relative=yes -Rf.git/tags.$$ --exclude=.git
-mv .git/tags.$$ .git/tags
+
+ctags -R

@@ -29,6 +29,8 @@
 	cam = commit -am
 	## Ammend the commit using the previous message
 	touchup = commit --amend --reuse-message=HEAD
+	## Force push if safe
+	pfl = push --force-with-lease
 
 	# Add everything
 	aa = add --all
@@ -137,3 +139,5 @@
 	program = gpg
 [advice]
 	ignoredHook = false
+[status]
+	submoduleSummary = true

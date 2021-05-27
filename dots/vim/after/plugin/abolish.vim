@@ -5,3 +5,4 @@ if !exists(':Abolish')
 endif
 
 Abolish tenent{,_id} tenant{}
+Abolish teir{,s} tier{}

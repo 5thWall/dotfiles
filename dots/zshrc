@@ -1,7 +1,6 @@
 [ -r $HOME/antigen.zsh ] && source $HOME/antigen.zsh
 [ -r /usr/local/share/antigen/antigen.zsh ] && source /usr/local/share/antigen/antigen.zsh
 
-
 if which antigen > /dev/null; then
   #load the oh-my-zsh library
   antigen use oh-my-zsh
@@ -12,7 +11,7 @@ if which antigen > /dev/null; then
   antigen bundle mafredri/zsh-async
   antigen bundle sindresorhus/pure
 
-  BUNDLED_COMMANDS=(rubocop bluegreen)
+  BUNDLED_COMMANDS=(rubocop)
 
   # Plugins
   antigen bundle github
@@ -22,10 +21,15 @@ if which antigen > /dev/null; then
   antigen bundle bundler
   antigen bundle zsh-users/zsh-syntax-highlighting
   antigen bundle wd
+  antigen bundle vi-mode
 
   # Finished loading antigen
   antigen apply
 fi
+
+PROMPT='%(?.%F{green}❯.%F{red}❯)%f '
+
+bindkey -v
 
 # Custom
 for file in ~/.zsh/{aliases,functions,completion}.zsh; do
@@ -35,3 +39,7 @@ unset file
 
 # Include secrets...
 [ -r ~/.secret ] && source ~/.secret
+
+export AWS_PROFILE=dev
+# source "$(stack -H)/bin/stack.completions"
+# export STACK_HOME="$(stack -H)"

@@ -3,9 +3,8 @@ alias reload='source ~/.zshrc'
 
 # nvim is vim
 alias e=$EDITOR
-
-# Alias elm-format so it's usefull
-alias elm-format='elm-format-0.18'
+alias eO="e -O"
+alias eo="e -o"
 
 # Show last few files
 alias lf='ls -lrt | tail -6'
@@ -14,6 +13,10 @@ if which exa > /dev/null; then
   alias ls=exa
   alias la='exa -la'
   alias lf='ls -lrt modified | tail -6'
+fi
+
+if which bat > /dev/null; then
+  alias cat=bat
 fi
 
 # Get stuff from brew
@@ -57,11 +60,6 @@ alias hide="defaults write com.apple.Finder AppleShowAllFiles -bool false && kil
 # Hide/show all desktop icons (useful when presenting)
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
-
-# One of @janmoesen’s ProTip™s
-for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
-	alias "$method"="lwp-request -m '$method'"
-done
 
 # http://xkcd.com/530/
 alias shutup="osascript -e 'set volume output muted true'"

@@ -38,13 +38,6 @@ default_command_set = Pry::CommandSet.new do
     end
   end
 
-  command "sql", "Send sql over AR." do |query|
-    if ENV['RAILS_ENV'] || defined?(Rails)
-      pp ActiveRecord::Base.connection.select_all(query)
-    else
-      pp "No rails env defined"
-    end
-  end
   command "caller_method" do |depth|
     depth = depth.to_i || 1
     if /^(.+?):(\d+)(?::in `(.*)')?/ =~ caller(depth+1).first
@@ -71,4 +64,8 @@ class Hash
   def self.toy(n=10)
     Hash[Array.toy(n).zip(Array.toy(n){|c| (96+(c+1)).chr})]
   end
+end
+
+def pbcopy(arg)
+ IO.popen('pbcopy', 'w') { |io| io.puts arg }
 end

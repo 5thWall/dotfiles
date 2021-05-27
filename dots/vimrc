@@ -1,5 +1,10 @@
 scriptencoding utf-8
 
+" If I had put a note here when I added this
+" Then I would now remember what it was for
+" I could look it up
+" But it's probably not important
+" This is a reminder to document my changes
 if has('python3')
   silent! python3 1
 endif
@@ -13,8 +18,9 @@ nnoremap <Space> <Nop>
 " PLUGINS FOR THE PLUGIN GOD
 call plug#begin('~/.vim/plug')
 " Look and feel plugins
-Plug 'altercation/vim-colors-solarized'
+Plug 'morhetz/gruvbox'
 Plug 'itchyny/lightline.vim'
+Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'yggdroot/indentLine'
 
 " Language Specific Plugins
@@ -27,7 +33,7 @@ Plug 'tpope/vim-bundler'
 Plug 'rust-lang/rust.vim'
 
 " Elixir
-Plug 'elixir-lang/vim-elixir'
+Plug 'elixir-editors/vim-elixir'
 Plug 'mattreduce/vim-mix'
 
 " Elm
@@ -36,14 +42,20 @@ Plug 'ElmCast/elm-vim'
 " Markdown
 Plug 'tpope/vim-markdown'
 
+" JavaScript
+Plug 'pangloss/vim-javascript'
+
 " JSON
 Plug 'elzr/vim-json'
 
 " Scala
-Plug 'derekwyatt/vim-scala'
+" Plug 'derekwyatt/vim-scala'
 
 " TOML
 Plug 'cespare/vim-toml'
+
+" Terraform
+Plug 'hashivim/vim-terraform'
 
 " PlantUML
 Plug 'aklt/plantuml-syntax'
@@ -79,10 +91,18 @@ Plug 'rizzatti/funcoo.vim' | Plug 'rizzatti/dash.vim'
 
 " Syntax and testing
 Plug 'janko-m/vim-test'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'maximbaz/lightline-ale'
 
+" Autocompletion
+" Plug 'Shougo/deoplete.nvim'
+" Plug 'roxma/nvim-yarp'
+" Plug 'roxma/vim-hug-neovim-rpc'
+
 " Fun
+  " Scratch buffer for live code evaluation (eh)
+Plug 'metakirby5/codi.vim'
+  " Some sort of minimalist text editing stuff
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 call plug#end()
@@ -95,13 +115,11 @@ syntax on
 set background=dark
 set cursorline
 set cursorcolumn
-colorscheme solarized
-let g:solarized_hitrail=1
-let g:lightline = {
-    \ 'colorshceme': 'solarized',
-    \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
-    \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
-    \ }
+colorscheme gruvbox
+let g:lightline = {}
+let g:lightline.colorscheme = 'gruvbox'
+let g:lightline.separator = { 'left': "\ue0b0", 'right': "\ue0b2" }
+let g:lightline.subseparator = { 'left': "\ue0b1", 'right': "\ue0b3" }
 let g:lightline.component_expand = {
     \ 'linter_checking': 'lightline#ale#checking',
     \ 'linter_warnings': 'lightline#ale#warnings',
@@ -237,7 +255,13 @@ let g:html_indent_inctags = 'body,head,tbody,p'
 let g:ale_ruby_rubocop_options = '--parallel'
 let g:ale_ruby_rubocop_executable = 'bundle'
 let g:ale_scala_scalastyle_config = '~/.config/lint/scalastyle_config.xml'
+let g:ale_completion_enabled = 1
+set completeopt+=noinsert
 " END ale Config
+
+" deplete Config
+" let g:deoplete#enable_at_startup = 1
+" END deoplete Config
 
 " IndentLine Config
 let g:indentLine_char = '┊'
